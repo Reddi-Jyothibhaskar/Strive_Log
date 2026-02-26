@@ -19,7 +19,12 @@ export const updateSubject = async (req, res) => {
 };
 
 export const deleteSubject = async (req, res) => {
-  const { id } = req.params;
-  await subjectService.deleteSubject(id);
-  res.status(204).json({ message: "Subject deleted successfully" });
+  try {
+    const { id } = req.params;
+    await subjectService.deleteSubject(id);
+    res.status(200).json({ message: "Subject deleted successfully" });
+  } catch(err) {
+    console.log(err);
+    res.json(err);
+  }
 };
