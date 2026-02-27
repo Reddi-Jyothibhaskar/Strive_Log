@@ -29,6 +29,7 @@ async function updateSubject(id, name) {
 // Delete subject (transactional)
 
 async function deleteSubject(id) {
+
   return prisma.$transaction([
     prisma.DailyEntry.deleteMany({
       where: { subject_id: Number(id) }
