@@ -2,8 +2,12 @@ import temp_topicsService from "../services/temp_topics.service.js";
 
 export const getTempTopics = async (req, res) => {
     const { subject_id } = req.params;
-    const temp_topics = await temp_topicsService.getTempTopics(subject_id);
-    res.json(temp_topics);
+    const topics = await temp_topicsService.getTempTopics(subject_id);
+    const formattedTopics = topics.map(topic => ({
+        ...topic,
+        id: topic.id.toString()
+    }));
+    res.json(formattedTopics);
 };
 
 export const createTempTopic = async (req, res) => {
