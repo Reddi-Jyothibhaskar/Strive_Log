@@ -3,12 +3,17 @@ const app = express();
 import dotenv from "dotenv";
 import subjectsRoutes from "./src/routes/subjects.routes.js";
 import tempTopicRoutes from "./src/routes/temp_topics.routes.js";
+import analyticsRoutes from "./src/routes/analytics.routes.js";
+import synchronisationRoute from "./src/routes/synchronisation.route.js";
 
 dotenv.config();    
 
 app.use(express.json());
 app.use("/api/subjects", subjectsRoutes);
 app.use("/api/subjects", tempTopicRoutes);
+app.use("/api/analytics", analyticsRoutes);
+app.use("/api", synchronisationRoute);
+
 app.get("/", (req, res) => {
   res.send("Backend running successfully 🚀");
 });
