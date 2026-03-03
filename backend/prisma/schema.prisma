@@ -27,7 +27,7 @@ model DailyEntry {
 
   subject    Subject  @relation(fields: [subject_id], references: [id])
 
-  @@unique([subject_id, study_date], map : "uniq_subject_per_day")
+  @@unique([subject_id, study_date])
   @@map("daily_entries")
 }
 
