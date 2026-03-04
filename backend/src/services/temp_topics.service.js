@@ -29,7 +29,9 @@ async function createTempTopic(subject_id, name) {
 async function updateTempTopic(subject_id, id, name) {
     return prisma.tempTopic.update({
         where: { subject_id: Number(subject_id), id: Number(id) },
-        data: { name }
+        data: { name,
+                created_at : new Date()
+         }
     });
 }
 
