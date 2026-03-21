@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-// const BackendURL = import.meta.env.VITE_API_URL;
-const BackendURL = `http://localhost:5000`;
+const BackendURL = import.meta.env.BACKEND_URL;
 const API = `${BackendURL}/api`;
 
 // ─── helpers ───────────────────────────────────────────────────────────────
