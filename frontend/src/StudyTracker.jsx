@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 
-const API = "http://localhost:5000/api";
+// const BackendURL = import.meta.env.VITE_API_URL;
+const BackendURL = `http://localhost:5000`;
+const API = `${BackendURL}/api`;
 
 // ─── helpers ───────────────────────────────────────────────────────────────
 const fmt = (iso) => {

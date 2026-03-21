@@ -6,8 +6,15 @@ import tempTopicRoutes from "./src/routes/temp_topics.routes.js";
 import analyticsRoutes from "./src/routes/analytics.routes.js";
 import synchronisationRoute from "./src/routes/synchronisation.route.js";
 import historyRoute from "./src/routes/history.routes.js";
-
+import cors from "cors";
 dotenv.config();    
+
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 
 app.use(express.json());
 app.use("/api/subjects", subjectsRoutes);
